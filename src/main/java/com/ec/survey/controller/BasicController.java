@@ -7,7 +7,7 @@ import java.net.*;
 import java.nio.charset.StandardCharsets;
 import java.util.*;
 
-import javax.annotation.Resource;
+import jakarta.annotation.Resource;
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;

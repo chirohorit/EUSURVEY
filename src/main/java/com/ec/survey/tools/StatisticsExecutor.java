@@ -5,7 +5,7 @@ import java.util.Date;
 import java.util.Locale;
 import java.util.UUID;
 
-import javax.annotation.Resource;
+import jakarta.annotation.Resource;
 import javax.servlet.ServletContext;
 
 import org.apache.commons.io.IOUtils;

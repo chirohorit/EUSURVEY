@@ -7,7 +7,7 @@ import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
 import org.owasp.esapi.errors.ValidationException;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -33,7 +33,7 @@ public class Download extends Question {
 	}
 	
 	@ManyToMany(targetEntity=File.class, cascade = CascadeType.ALL  )
-	@JoinTable(foreignKey = @ForeignKey(javax.persistence.ConstraintMode.NO_CONSTRAINT),
+	@JoinTable(foreignKey = @ForeignKey(jakarta.persistence.ConstraintMode.NO_CONSTRAINT),
 			inverseJoinColumns = @JoinColumn(name = "files_FILE_ID"),
 			joinColumns = @JoinColumn(name = "ELEMENTS_ID"))
 	@Fetch(value = FetchMode.SELECT)

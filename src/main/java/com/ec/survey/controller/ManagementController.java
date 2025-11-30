@@ -64,7 +64,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.support.DefaultMultipartHttpServletRequest;
 import org.springframework.web.servlet.ModelAndView;
 
-import javax.annotation.Resource;
+import jakarta.annotation.Resource;
 import javax.naming.NamingException;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;

@@ -1,7 +1,7 @@
 package com.ec.survey.model.survey;
 
 import java.util.*;
-import javax.persistence.*;
+import jakarta.persistence.*;
 
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
@@ -45,7 +45,7 @@ public class ComplexTable extends Question {
 
 	@OneToMany(targetEntity=ComplexTableItem.class, cascade = CascadeType.ALL)
 	@Fetch(value = FetchMode.SELECT)
-	@JoinColumn(nullable=true, foreignKey = @ForeignKey(javax.persistence.ConstraintMode.NO_CONSTRAINT))
+	@JoinColumn(nullable=true, foreignKey = @ForeignKey(jakarta.persistence.ConstraintMode.NO_CONSTRAINT))
 	@Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
 	public List<ComplexTableItem> getChildElements() {
 		return childElements;

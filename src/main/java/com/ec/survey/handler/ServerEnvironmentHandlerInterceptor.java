@@ -3,7 +3,7 @@
  */
 package com.ec.survey.handler;
 
-import javax.annotation.Resource;
+import jakarta.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 

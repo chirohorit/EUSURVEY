@@ -18,7 +18,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.awt.Graphics2D;
 import java.awt.geom.Rectangle2D;
-import javax.annotation.Resource;
+import jakarta.annotation.Resource;
 import javax.imageio.ImageIO;
 
 import org.apache.log4j.Logger;
@@ -65,6 +65,7 @@ import com.ec.survey.model.survey.ecf.ECFProfileSummaryResult;
 import com.ec.survey.model.survey.ecf.ECFSummaryResult;
 import com.ec.survey.model.survey.ecf.TypeUUIDAndName;
 import com.google.common.primitives.Ints;
+
 
 @Service("ecfService")
 @Configurable

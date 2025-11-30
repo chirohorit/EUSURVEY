@@ -20,7 +20,7 @@ import java.util.Locale;
 import java.util.Map;
 import java.util.Map.Entry;
 
-import javax.annotation.Resource;
+import jakarta.annotation.Resource;
 
 @Service("attendeeUpdater")
 @Scope("prototype")

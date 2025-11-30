@@ -1,7 +1,7 @@
 package com.ec.survey.controller;
 
 import org.jfree.chart.ChartFactory;
-import org.jfree.chart.ChartUtilities;
+import org.jfree.chart.ChartUtils;
 import org.jfree.chart.JFreeChart;
 import org.jfree.chart.plot.PiePlot;
 import org.jfree.data.general.DefaultPieDataset;
@@ -38,7 +38,7 @@ public class GraphicsController extends BasicController {
         plot.setCircular(true);
         plot.setOutlineVisible(false);
         plot.setLabelGenerator(null);
-        plot.setBaseSectionPaint(Color.blue);
+        //plot.setBaseSectionPaint(Color.blue);
         plot.setSectionPaint("Score",new Color(51,122,183));
         plot.setSectionPaint("Other", Color.lightGray);
         plot.setShadowPaint(Color.white);
@@ -47,7 +47,7 @@ public class GraphicsController extends BasicController {
             response.setContentType("image/png");
             OutputStream out = response.getOutputStream();
 
-            ChartUtilities.writeChartAsPNG(out , chart , 130, 130);
+            ChartUtils.writeChartAsPNG(out , chart , 130, 130);
         } catch (Exception e) {
             logger.error(e.getLocalizedMessage(), e);
         }		

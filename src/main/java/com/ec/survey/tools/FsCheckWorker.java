@@ -12,7 +12,7 @@ import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
 
-import javax.annotation.Resource;
+import jakarta.annotation.Resource;
 import javax.servlet.ServletContext;
 import java.io.File;
 import java.io.IOException;

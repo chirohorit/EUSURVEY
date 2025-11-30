@@ -3,7 +3,7 @@ package com.ec.survey.model.chargeback;
 import com.ec.survey.tools.ConversionTools;
 import org.springframework.format.annotation.DateTimeFormat;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 import java.util.Date;
 
 @Entity

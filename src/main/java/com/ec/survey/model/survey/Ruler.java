@@ -4,7 +4,7 @@ import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 import org.owasp.esapi.errors.ValidationException;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 
 /**
  * Represents a ruler element in a survey

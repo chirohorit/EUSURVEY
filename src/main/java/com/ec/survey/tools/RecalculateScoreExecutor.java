@@ -2,7 +2,7 @@ package com.ec.survey.tools;
 
 import java.util.List;
 
-import javax.annotation.Resource;
+import jakarta.annotation.Resource;
 
 import com.ec.survey.model.Form;
 import com.ec.survey.service.*;

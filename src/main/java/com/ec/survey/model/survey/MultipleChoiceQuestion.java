@@ -4,7 +4,7 @@ import org.codehaus.jackson.annotate.JsonIgnore;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 import org.owasp.esapi.errors.ValidationException;
-import javax.persistence.*;
+import jakarta.persistence.*;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.util.Objects;

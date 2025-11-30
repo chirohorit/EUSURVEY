@@ -2,7 +2,7 @@ package com.ec.survey.tools;
 
 import java.io.InputStream;
 
-import javax.annotation.Resource;
+import jakarta.annotation.Resource;
 import javax.servlet.ServletContext;
 
 import org.apache.commons.io.IOUtils;

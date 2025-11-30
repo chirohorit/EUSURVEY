@@ -3,7 +3,7 @@ package com.ec.survey.model.attendees;
 import java.util.Date;
 import java.util.UUID;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;

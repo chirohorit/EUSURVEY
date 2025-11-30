@@ -6,16 +6,16 @@ import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
 import org.owasp.esapi.errors.ValidationException;
 
-import javax.persistence.Cacheable;
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.DiscriminatorValue;
-import javax.persistence.Entity;
-import javax.persistence.ForeignKey;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
-import javax.persistence.OrderBy;
-import javax.persistence.Transient;
+import jakarta.persistence.Cacheable;
+import jakarta.persistence.CascadeType;
+import jakarta.persistence.Column;
+import jakarta.persistence.DiscriminatorValue;
+import jakarta.persistence.Entity;
+import jakarta.persistence.ForeignKey;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.OrderBy;
+import jakarta.persistence.Transient;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -62,7 +62,7 @@ public class RatingQuestion extends Question {
 	@OneToMany(targetEntity=Element.class, cascade = CascadeType.ALL)  
 	@Fetch(value = FetchMode.SELECT)
 	@OrderBy(value = "position asc")
-	@JoinColumn(nullable=true, foreignKey = @ForeignKey(javax.persistence.ConstraintMode.NO_CONSTRAINT))
+	@JoinColumn(nullable=true, foreignKey = @ForeignKey(jakarta.persistence.ConstraintMode.NO_CONSTRAINT))
 	@org.hibernate.annotations.ForeignKey(name = "none")
 	@Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
 	public List<Element> getChildElements() {

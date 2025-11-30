@@ -10,7 +10,7 @@ import org.hibernate.annotations.CacheConcurrencyStrategy;
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 import java.util.*;
 import java.util.Map.Entry;
 
@@ -224,7 +224,7 @@ public class User implements java.io.Serializable {
 	}
 
 	@ManyToMany(targetEntity = Role.class)
-	@JoinTable(foreignKey = @ForeignKey(javax.persistence.ConstraintMode.NO_CONSTRAINT),
+	@JoinTable(foreignKey = @ForeignKey(jakarta.persistence.ConstraintMode.NO_CONSTRAINT),
 			joinColumns = @JoinColumn(name = "USERS_USER_ID"),
 			inverseJoinColumns = @JoinColumn(name = "roles_ROLE_ID"))
 	@Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
@@ -248,7 +248,7 @@ public class User implements java.io.Serializable {
 	}
 
 	@ManyToMany(targetEntity = AttributeName.class)
-	@JoinTable(foreignKey = @ForeignKey(javax.persistence.ConstraintMode.NO_CONSTRAINT),
+	@JoinTable(foreignKey = @ForeignKey(jakarta.persistence.ConstraintMode.NO_CONSTRAINT),
 			joinColumns = @JoinColumn(name = "USERS_USER_ID"),
 			inverseJoinColumns = @JoinColumn(name = "selectedAttributes_AN_ID"))
 	@Fetch(value = FetchMode.SELECT)

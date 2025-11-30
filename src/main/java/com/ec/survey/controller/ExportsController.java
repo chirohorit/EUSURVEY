@@ -17,7 +17,7 @@ import com.ec.survey.tools.Tools;
 import com.ec.survey.tools.WeakAuthenticationException;
 
 import com.ec.survey.tools.activity.ActivityRegistry;
-import org.apache.maven.surefire.shade.org.apache.maven.shared.utils.StringUtils;
+import org.apache.maven.shared.utils.StringUtils;
 import org.apache.poi.util.IOUtils;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -27,7 +27,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
-import javax.annotation.Resource;
+import jakarta.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.FileInputStream;

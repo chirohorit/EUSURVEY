@@ -2,14 +2,16 @@ package com.ec.survey.tools;
 
 import com.ec.survey.model.Skin;
 import com.ec.survey.model.survey.base.File;
-import edu.vt.middleware.password.*;
+import org.passay.*;
+import org.passay.CharacterData.*;
+//import edu.vt.middleware.password.*;
 import org.apache.commons.codec.binary.Base64;
 import org.apache.commons.codec.digest.DigestUtils;
 import org.json.simple.JSONObject;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document.OutputSettings;
 import org.jsoup.nodes.Entities.EscapeMode;
-import org.jsoup.safety.Whitelist;
+import org.jsoup.safety.Safelist;
 import org.owasp.esapi.ESAPI;
 import org.owasp.esapi.errors.IntrusionException;
 import org.owasp.esapi.errors.ValidationException;
@@ -190,10 +192,14 @@ public class Tools {
 		// control allowed characters
 		CharacterCharacteristicsRule charRule = new CharacterCharacteristicsRule();
 		// require at least 1 digit in passwords
-		charRule.getRules().add(new DigitCharacterRule(1));
+		charRule.getRules().add(new CharacterRule(EnglishCharacterData.Digit, 1));
 		// require at least 1 non-alphanumeric char
-		charRule.getRules().add(new NonAlphanumericCharacterRule(1));
-		charRule.setNumberOfCharacteristics(2);
+		charRule.getRules().add(new CharacterRule(EnglishCharacterData.Special, 1));
+        // require at least 1 lowercase
+        charRule.getRules().add(new CharacterRule(EnglishCharacterData.LowerCase, 1));
+        // require at least 1 uppercase
+        charRule.getRules().add(new CharacterRule(EnglishCharacterData.UpperCase, 1));
+		charRule.setNumberOfCharacteristics(4);
 
 		// group all rules together in a List
 		List<Rule> ruleList = new ArrayList<>();
@@ -201,7 +207,8 @@ public class Tools {
 		ruleList.add(charRule);
 
 		PasswordValidator validator = new PasswordValidator(ruleList);
-		PasswordData passwordData = new PasswordData(new Password(password));
+		//PasswordData passwordData = new PasswordData(new Password(password));
+        PasswordData passwordData = new PasswordData(password);
 
 		RuleResult result = validator.validate(passwordData);
 
@@ -235,10 +242,10 @@ public class Tools {
 	}
 	public static String filterHTML(String input, boolean allowLinks) {
 		//the following removes direct formatting
-		//return Jsoup.clean(input, Whitelist.relaxed());
+		//return Jsoup.clean(input, Safelist.relaxed());
 		
 		// the following turns <br /> into <br>:
-		//return Jsoup.clean(input, Whitelist.relaxed().addAttributes(":all", "style"));
+		//return Jsoup.clean(input, Safelist.relaxed().addAttributes(":all", "style"));
 		
 		if (input == null || input.length() == 0) return input;
 		
@@ -248,14 +255,14 @@ public class Tools {
                  .escapeMode(EscapeMode.xhtml)
                  .prettyPrint(false);
 
-		var whitelist = Whitelist.relaxed().addAttributes(":all", "style").addAttributes(":all", "class");
+		var safelist = Safelist.relaxed().addAttributes(":all", "style").addAttributes(":all", "class");
 		if (allowLinks) {
-			whitelist.addEnforcedAttribute("a", "target", "_blank");
+			safelist.addEnforcedAttribute("a", "target", "_blank");
 		} else {
-			whitelist.removeTags("a");
+			safelist.removeTags("a");
 		}
 		
-		return Jsoup.clean(input, "", whitelist, outputSettings);
+		return Jsoup.clean(input, "", safelist, outputSettings);
 	}
 
 	public static String toUTF83Bytes(String input) {

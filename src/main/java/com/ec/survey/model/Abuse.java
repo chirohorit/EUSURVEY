@@ -9,7 +9,7 @@ import com.ec.survey.tools.ConversionTools;
 
 import java.util.Date;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 
 /**
  * Represents a abuse information for

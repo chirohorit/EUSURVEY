@@ -9,7 +9,7 @@ import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
 import org.json.simple.JSONObject;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -126,7 +126,7 @@ public class Answer implements java.io.Serializable {
 	public void setAnswerSet(AnswerSet s) {this.answerSet = s;}  
 
 	@OneToMany(targetEntity=File.class, cascade = CascadeType.ALL  )
-	@JoinTable(foreignKey = @ForeignKey(javax.persistence.ConstraintMode.NO_CONSTRAINT),
+	@JoinTable(foreignKey = @ForeignKey(jakarta.persistence.ConstraintMode.NO_CONSTRAINT),
 			inverseJoinColumns = @JoinColumn(name = "files_FILE_ID"),
 			joinColumns = @JoinColumn(name = "ANSWERS_ANSWER_ID"))
 	@Fetch(value = FetchMode.SELECT)

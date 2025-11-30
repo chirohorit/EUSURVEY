@@ -5,8 +5,8 @@ import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 import com.ec.survey.tools.Tools;
 
-import javax.persistence.*;
-import javax.persistence.Table;
+import jakarta.persistence.*;
+import jakarta.persistence.Table;
 import java.util.Date;
 import java.util.UUID;
 

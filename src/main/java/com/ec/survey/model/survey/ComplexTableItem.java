@@ -5,7 +5,7 @@ import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
-import javax.persistence.*;
+import jakarta.persistence.*;
 
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
@@ -166,7 +166,7 @@ public class ComplexTableItem extends Question {
     }
 
     @OneToMany(targetEntity = PossibleAnswer.class, cascade = CascadeType.ALL, orphanRemoval = true)
-    @JoinTable(foreignKey = @ForeignKey(javax.persistence.ConstraintMode.NO_CONSTRAINT),
+    @JoinTable(foreignKey = @ForeignKey(jakarta.persistence.ConstraintMode.NO_CONSTRAINT),
             name = "ELEMENTS_ELEMENTS",
             joinColumns = @JoinColumn(name = "ELEMENTS_ID"),
             inverseJoinColumns = @JoinColumn(name = "possibleAnswers_ID"))

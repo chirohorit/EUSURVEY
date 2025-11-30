@@ -2,7 +2,7 @@ package com.ec.survey.model;
 
 import java.util.Date;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 
 import com.ec.survey.tools.ConversionTools;
 import com.ec.survey.tools.Tools;

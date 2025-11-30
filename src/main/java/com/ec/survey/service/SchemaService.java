@@ -21,8 +21,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
-import javax.annotation.Resource;
-import javax.persistence.PersistenceException;
+import jakarta.annotation.Resource;
+import jakarta.persistence.PersistenceException;
 import javax.servlet.ServletContext;
 import java.io.FileOutputStream;
 import java.io.IOException;

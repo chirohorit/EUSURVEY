@@ -11,7 +11,7 @@ import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 
 /**
  * Represents a privilege that a user has to access the results of a survey

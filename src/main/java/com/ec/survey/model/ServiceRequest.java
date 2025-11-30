@@ -2,7 +2,7 @@ package com.ec.survey.model;
 
 import java.util.Date;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 
 import org.springframework.format.annotation.DateTimeFormat;
 import com.ec.survey.tools.ConversionTools;

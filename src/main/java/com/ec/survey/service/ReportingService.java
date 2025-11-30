@@ -13,8 +13,8 @@ import java.util.NoSuchElementException;
 import java.util.Set;
 import java.util.Map.Entry;
 
-import javax.annotation.Resource;
-import javax.persistence.PersistenceException;
+import jakarta.annotation.Resource;
+import jakarta.persistence.PersistenceException;
 
 import org.apache.commons.lang.exception.ExceptionUtils;
 import org.apache.log4j.Logger;

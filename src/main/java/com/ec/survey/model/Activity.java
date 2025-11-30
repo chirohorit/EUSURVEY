@@ -1,7 +1,7 @@
 package com.ec.survey.model;
 
 import java.util.Date;
-import javax.persistence.*;
+import jakarta.persistence.*;
 
 import com.ec.survey.tools.activity.ActivityRegistry;
 import org.springframework.format.annotation.DateTimeFormat;

@@ -22,7 +22,7 @@ import java.io.InputStream;
 import java.util.List;
 import java.util.Locale;
 
-import javax.annotation.Resource;
+import jakarta.annotation.Resource;
 import javax.servlet.ServletContext;
 
 @Service("recreateWorker")

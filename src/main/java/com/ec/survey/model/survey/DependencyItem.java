@@ -5,8 +5,8 @@ import org.hibernate.annotations.CacheConcurrencyStrategy;
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
 
-import javax.persistence.*;
-import javax.persistence.Table;
+import jakarta.persistence.*;
+import jakarta.persistence.Table;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -46,7 +46,7 @@ public class DependencyItem implements java.io.Serializable {
 	}
 	
 	@ManyToMany(targetEntity=Element.class)
-	@JoinTable(foreignKey = @ForeignKey(javax.persistence.ConstraintMode.NO_CONSTRAINT),
+	@JoinTable(foreignKey = @ForeignKey(jakarta.persistence.ConstraintMode.NO_CONSTRAINT),
 			name = "POSSIBLEANSWER_ELEMENT",
 			joinColumns = @JoinColumn(name = "DEPITEMS_ID"),
 			inverseJoinColumns = @JoinColumn(name = "dependentElements_ID"))

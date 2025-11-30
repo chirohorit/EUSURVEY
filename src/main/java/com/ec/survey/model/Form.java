@@ -32,7 +32,7 @@ import com.ec.survey.model.survey.DraftIDElement;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import javax.persistence.Transient;
+import jakarta.persistence.Transient;
 import com.ec.survey.model.survey.Element;
 import com.ec.survey.model.survey.EmptyElement;
 import com.ec.survey.model.survey.FreeTextQuestion;

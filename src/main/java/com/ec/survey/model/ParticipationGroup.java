@@ -10,11 +10,11 @@ import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.*;
 import org.springframework.format.annotation.DateTimeFormat;
 
-import javax.persistence.*;
-import javax.persistence.CascadeType;
-import javax.persistence.Entity;
-import javax.persistence.ForeignKey;
-import javax.persistence.Table;
+import jakarta.persistence.*;
+import jakarta.persistence.CascadeType;
+import jakarta.persistence.Entity;
+import jakarta.persistence.ForeignKey;
+import jakarta.persistence.Table;
 import java.util.Date;
 import java.util.List;
 
@@ -151,7 +151,7 @@ public class ParticipationGroup {
 	}
 	
 	@ManyToMany()
-	@JoinTable(foreignKey = @ForeignKey(javax.persistence.ConstraintMode.NO_CONSTRAINT),
+	@JoinTable(foreignKey = @ForeignKey(jakarta.persistence.ConstraintMode.NO_CONSTRAINT),
 			inverseJoinColumns = @JoinColumn(name = "attendees_ATTENDEE_ID"),
 			joinColumns = @JoinColumn(name = "PARTICIPANTS_PARTICIPATION_ID"))
 	@Fetch(value = FetchMode.SELECT)
@@ -165,7 +165,7 @@ public class ParticipationGroup {
 	}
 	
 	@ManyToMany()
-	@JoinTable(foreignKey = @ForeignKey(javax.persistence.ConstraintMode.NO_CONSTRAINT),
+	@JoinTable(foreignKey = @ForeignKey(jakarta.persistence.ConstraintMode.NO_CONSTRAINT),
 			inverseJoinColumns = @JoinColumn(name = "ecasUsers_USER_ID"),
 			joinColumns = @JoinColumn(name = "PARTICIPANTS_PARTICIPATION_ID"))
 	@Fetch(value = FetchMode.SELECT)

@@ -9,7 +9,7 @@ import java.util.Date;
 import java.util.Enumeration;
 import java.util.List;
 
-import javax.annotation.Resource;
+import jakarta.annotation.Resource;
 
 import com.ec.survey.replacements.Pair;
 import com.ec.survey.tools.*;

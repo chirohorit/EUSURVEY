@@ -14,7 +14,7 @@ import java.io.OutputStream;
 import java.util.List;
 import java.util.UUID;
 
-import javax.annotation.Resource;
+import jakarta.annotation.Resource;
 import javax.servlet.ServletContext;
 
 import org.apache.commons.compress.archivers.ArchiveOutputStream;

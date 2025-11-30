@@ -2,7 +2,7 @@ package com.ec.survey.model.attendees;
 
 import java.util.List;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
@@ -60,7 +60,7 @@ public class Share {
 	}
 	
 	@ManyToMany()
-	@JoinTable(foreignKey = @ForeignKey(javax.persistence.ConstraintMode.NO_CONSTRAINT),
+	@JoinTable(foreignKey = @ForeignKey(jakarta.persistence.ConstraintMode.NO_CONSTRAINT),
 			inverseJoinColumns = @JoinColumn(name = "attendees_ATTENDEE_ID"),
 			joinColumns = @JoinColumn(name = "SHARES_SHARE_ID"))
 	@Fetch(value = FetchMode.SELECT)

@@ -3,7 +3,7 @@ package com.ec.survey.model;
 import com.ec.survey.tools.activity.ActivityRegistry;
 import edu.emory.mathcs.backport.java.util.Arrays;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 

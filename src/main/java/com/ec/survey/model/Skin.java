@@ -6,7 +6,7 @@ import org.hibernate.annotations.CacheConcurrencyStrategy;
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -151,7 +151,7 @@ public class Skin implements java.io.Serializable {
 	}
 	
 	@OneToMany(targetEntity=SkinElement.class, cascade = CascadeType.ALL  )
-	@JoinTable(foreignKey = @ForeignKey(javax.persistence.ConstraintMode.NO_CONSTRAINT),
+	@JoinTable(foreignKey = @ForeignKey(jakarta.persistence.ConstraintMode.NO_CONSTRAINT),
 			joinColumns = @JoinColumn(name = "SKINS_SKIN_ID"),
 			inverseJoinColumns = @JoinColumn(name = "elements_SE_ID"))
 	@Fetch(value = FetchMode.SELECT)

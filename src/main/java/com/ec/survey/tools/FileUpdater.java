@@ -3,7 +3,7 @@ package com.ec.survey.tools;
 import java.nio.file.Files;
 import java.util.List;
 
-import javax.annotation.Resource;
+import jakarta.annotation.Resource;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Value;

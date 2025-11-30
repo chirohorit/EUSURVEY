@@ -3,7 +3,7 @@ package com.ec.survey.model.survey;
 import java.util.*;
 import java.util.stream.Collectors;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
@@ -48,7 +48,7 @@ public class RankingQuestion extends Question {
 	@OneToMany(targetEntity=RankingItem.class, cascade = CascadeType.ALL)
 	@Fetch(value = FetchMode.SELECT)
 	@OrderBy(value = "position asc")
-	@JoinColumn(nullable=true, foreignKey = @ForeignKey(javax.persistence.ConstraintMode.NO_CONSTRAINT))
+	@JoinColumn(nullable=true, foreignKey = @ForeignKey(jakarta.persistence.ConstraintMode.NO_CONSTRAINT))
 	@org.hibernate.annotations.ForeignKey(name = "none")
 	@Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
 	public List<RankingItem> getChildElements() {

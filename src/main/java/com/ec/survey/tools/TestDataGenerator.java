@@ -2,7 +2,7 @@ package com.ec.survey.tools;
 
 import java.util.Locale;
 
-import javax.annotation.Resource;
+import jakarta.annotation.Resource;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.BeanFactory;

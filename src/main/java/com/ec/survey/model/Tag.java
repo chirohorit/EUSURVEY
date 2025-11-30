@@ -3,7 +3,7 @@ package com.ec.survey.model;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 
 @Entity
 @Table(name = "TAGS", uniqueConstraints = {@UniqueConstraint(columnNames={"TAG_NAME"},name="TAG_NAME")})

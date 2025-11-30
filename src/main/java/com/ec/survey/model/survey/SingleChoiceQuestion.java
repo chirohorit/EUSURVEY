@@ -8,7 +8,7 @@ import org.owasp.esapi.errors.ValidationException;
 import com.ec.survey.model.selfassessment.SACriterion;
 import com.ec.survey.model.selfassessment.SATargetDataset;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.util.ArrayList;

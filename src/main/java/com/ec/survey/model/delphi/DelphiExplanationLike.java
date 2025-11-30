@@ -1,7 +1,7 @@
 package com.ec.survey.model.delphi;
 
-import javax.persistence.Table;
-import javax.persistence.*;
+import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 @Entity
 @Table(name = "EXPLANATION_LIKES", indexes = {@Index(name = "EXPLANATIONLIKE_IDX", columnList = "ANSWER_EXPLANATION_ID, ANSWER_SET_CODE")})

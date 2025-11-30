@@ -7,7 +7,7 @@ import org.hibernate.annotations.CacheConcurrencyStrategy;
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -68,7 +68,7 @@ public class AnswerExplanation implements java.io.Serializable {
 	}
 
 	@OneToMany(targetEntity=File.class, cascade = CascadeType.ALL  )
-	@JoinTable(foreignKey = @ForeignKey(javax.persistence.ConstraintMode.NO_CONSTRAINT),
+	@JoinTable(foreignKey = @ForeignKey(jakarta.persistence.ConstraintMode.NO_CONSTRAINT),
 			inverseJoinColumns = @JoinColumn(name = "files_FILE_ID"),
 			joinColumns = @JoinColumn(name = "ANSWERS_EXPLANATIONS_ANSWER_EXPLANATION_ID"))
 	@Fetch(value = FetchMode.SELECT)

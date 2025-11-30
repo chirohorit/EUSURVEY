@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 import java.util.Calendar;
 import java.util.Date;
 
-import javax.annotation.Resource;
+import jakarta.annotation.Resource;
 
 @Service("deleteDraftsWorker")
 @Scope("singleton")

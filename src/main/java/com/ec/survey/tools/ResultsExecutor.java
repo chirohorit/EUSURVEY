@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Locale;
 import java.util.UUID;
 
-import javax.annotation.Resource;
+import jakarta.annotation.Resource;
 import javax.servlet.ServletContext;
 
 import com.ec.survey.tools.export.XlsxExportCreator;

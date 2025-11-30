@@ -7,7 +7,7 @@ import org.hibernate.annotations.CacheConcurrencyStrategy;
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -201,7 +201,7 @@ public abstract class Question extends Element {
 	}
 
 	@OneToMany(targetEntity = ScoringItem.class, cascade = CascadeType.ALL)
-	@JoinTable(foreignKey = @ForeignKey(javax.persistence.ConstraintMode.NO_CONSTRAINT),
+	@JoinTable(foreignKey = @ForeignKey(jakarta.persistence.ConstraintMode.NO_CONSTRAINT),
 			inverseJoinColumns = @JoinColumn(name = "scoringItems_ID"),
 			joinColumns = @JoinColumn(name = "ELEMENTS_ID"))
 	@Fetch(value = FetchMode.SELECT)

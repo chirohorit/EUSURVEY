@@ -25,7 +25,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.*;
 
-import javax.annotation.Resource;
+import jakarta.annotation.Resource;
 
 @Service("selfassessmentService")
 public class SelfAssessmentService extends BasicService {

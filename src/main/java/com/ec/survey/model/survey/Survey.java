@@ -14,19 +14,19 @@ import java.util.Map.Entry;
 import java.util.stream.Collectors;
 import java.util.SortedMap;
 import java.util.TreeMap;
-import javax.persistence.*;
-import javax.persistence.CascadeType;
-import javax.persistence.Entity;
-import javax.persistence.ForeignKey;
-import javax.persistence.Index;
-import javax.persistence.OrderBy;
-import javax.persistence.Table;
+import jakarta.persistence.*;
+import jakarta.persistence.CascadeType;
+import jakarta.persistence.Entity;
+import jakarta.persistence.ForeignKey;
+import jakarta.persistence.Index;
+import jakarta.persistence.OrderBy;
+import jakarta.persistence.Table;
 
 import com.ec.survey.model.*;
 
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
-import javax.persistence.Transient;
+import jakarta.persistence.Temporal;
+import jakarta.persistence.TemporalType;
+import jakarta.persistence.Transient;
 
 import com.ec.survey.model.administration.Role;
 import com.ec.survey.model.administration.User;
@@ -585,7 +585,7 @@ final public class Survey implements java.io.Serializable {
 	}
 
 	@OneToMany(targetEntity = Element.class, cascade = CascadeType.ALL, orphanRemoval = true)
-	@JoinTable(foreignKey = @ForeignKey(javax.persistence.ConstraintMode.NO_CONSTRAINT),
+	@JoinTable(foreignKey = @ForeignKey(jakarta.persistence.ConstraintMode.NO_CONSTRAINT),
 			joinColumns = @JoinColumn(name = "SURVEYS_SURVEY_ID"),
 			inverseJoinColumns = @JoinColumn(name = "elements_ID"))
 	@Fetch(value = FetchMode.SELECT)
@@ -1765,7 +1765,7 @@ final public class Survey implements java.io.Serializable {
 	}
 
 	@ManyToMany(targetEntity = Tag.class)
-	@JoinTable(foreignKey = @ForeignKey(javax.persistence.ConstraintMode.NO_CONSTRAINT),
+	@JoinTable(foreignKey = @ForeignKey(jakarta.persistence.ConstraintMode.NO_CONSTRAINT),
 			joinColumns = @JoinColumn(name = "SURVEY_SURVEY_ID"),
 			inverseJoinColumns = @JoinColumn(name = "tags_TAG_ID"))
 	@Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
