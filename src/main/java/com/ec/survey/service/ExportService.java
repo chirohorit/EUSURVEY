@@ -295,28 +295,33 @@ public class ExportService extends BasicService {
 		Query<Export> query;
 		if (userId == -1)
 		{
-			var sql = "SELECT e FROM Export e LEFT JOIN e.survey survey WHERE e.userId > 0";
+			var sql = "SELECT e.* FROM EXPORTS AS e LEFT JOIN SURVEYS AS e.survey on e.SURVEY_ID=s.SURVEY_ID WHERE e.USER_ID > 0";
 			if (!includeForArchive) {
-				sql += " AND (e.forArchiving is null or e.forArchiving = false)";
+				sql += " AND (e.EXPORT_FORARCHIVING is null or e.EXPORT_FORARCHIVING = false)";
 			}
 			sql += " ORDER BY e." + sortKey + " " + (ascending? "ASC" : "DESC");
 			query = session.createNativeQuery(sql, Export.class);
+            System.out.println(sql);
+
 		} else {
 		
-			String sql = "SELECT e FROM Export e LEFT JOIN e.survey survey WHERE e.userId = :userId";
+			String sql = "SELECT e.* FROM EXPORTS AS e LEFT JOIN SURVEYS AS e.survey on e.SURVEY_ID=s.SURVEY_ID WHERE e.USER_ID = :userId";
 			if (onlyNotNotified)
 			{
-				sql += " AND e.state = 2 AND e.notified = false AND e.survey.archived = false";
+				sql += " AND e.EXPORT_STATE = 2 AND e.EXPORT_NOT = false AND e.survey.ARCHIVED = false";
 			}
 
 
 			if (!includeForArchive) {
-				sql += " AND (e.forArchiving is null or e.forArchiving = false)";
+				sql += " AND (e.EXPORT_FORARCHIVING is null or e.EXPORT_FORARCHIVING = false)";
 			}
 
+            System.out.println(sql);
 			query = session.createNativeQuery(sql + " ORDER BY e." + sortKey + " " + (ascending? "ASC" : "DESC"), Export.class);
 			query.setParameter("userId", (Integer) userId);
 		}
+
+
 		
 		List<Export> exports;
 		
@@ -384,7 +389,7 @@ public class ExportService extends BasicService {
 	@Transactional(readOnly = true)
 	public List<Export> getSurveyExports(int surveyId) {
 		Session session = sessionFactory.getCurrentSession();
-		Query query = session.createNativeQuery("FROM Export e WHERE e.survey.id = :id");
+		Query query = session.createNativeQuery("SELECT e.* FROM EXPORTS e WHERE e.survey.SURVEY_ID = :id");
 		query.setParameter("id", (Integer) surveyId);
 		
 		@SuppressWarnings("unchecked")
@@ -396,7 +401,7 @@ public class ExportService extends BasicService {
 	public void deleteSurveyExports(int surveyId) throws IOException {
 		Session session = sessionFactory.getCurrentSession();
 		
-		Query query = session.createNativeQuery("FROM Export e WHERE e.survey.id = :id");
+		Query query = session.createNativeQuery("SELECT e.* FROM EXPORTS e WHERE e.survey.SURVEY_ID = :id");
 		query.setParameter("id", (Integer) surveyId);
 		
 		@SuppressWarnings("unchecked")
@@ -406,7 +411,7 @@ public class ExportService extends BasicService {
 			deleteExportFiles(export);
 		}		
 		
-		query = session.createNativeQuery("DELETE FROM Export e WHERE e.survey.id = :id");
+		query = session.createNativeQuery("DELETE FROM EXPORTS e WHERE e.survey.SURVEY_ID = :id");
 		query.setParameter("id", (Integer) surveyId);
 		
 		query.executeUpdate();
@@ -455,7 +460,7 @@ public class ExportService extends BasicService {
 				
 			Session session = sessionFactory.getCurrentSession();
 			
-			Query query = session.createNativeQuery("delete Export e where e.id = :id");
+			Query query = session.createNativeQuery("DELETE FROM EXPORTS WHERE EXPORT_ID = :id");
 			query.setParameter("id", (Integer) export.getId());
 			int rowCount = query.executeUpdate();
 			
@@ -511,7 +516,7 @@ public class ExportService extends BasicService {
 						session.evict(export);
 					}
 					
-					Query query = session.createNativeQuery("SELECT max(a.date) FROM Activity a WHERE a.surveyUID = :surveyUID");
+					Query query = session.createNativeQuery("SELECT MAX(a.ACTIVITY_DATE) FROM ACTIVITY a WHERE a.ACTIVITY_SUID = :surveyUID");
 					query.setParameter("surveyUID", (String) export.getSurvey().getUniqueId());
 					
 					Date max = (Date)query.uniqueResult();
@@ -525,7 +530,7 @@ public class ExportService extends BasicService {
 						session.evict(export);
 					}
 					
-					Query query = session.createNativeQuery("SELECT max(a.updateDate) FROM AnswerSet a WHERE a.surveyId = :surveyId AND a.isDraft = false");
+					Query query = session.createNativeQuery("SELECT MAX(a.ANSWER_SET_UPDATE) FROM ANSWERS_SET a WHERE a.SURVEY_ID = :surveyId AND a.ISDRAFT = false");
 					
 					if (export.getSurvey() != null)
 					{
@@ -556,7 +561,7 @@ public class ExportService extends BasicService {
 	public boolean hasPendingExports(int userID) {
 		
 		Session session = sessionFactory.getCurrentSession();
-		Query query = session.createNativeQuery("SELECT count(*) FROM Export e WHERE e.userId = :userId and e.state = :state and e.notified is false" );
+		Query query = session.createNativeQuery("SELECT COUNT(*) FROM EXPORTS e WHERE e.USER_ID = :userId and e.EXPORT_STATE = :state and e.EXPORT_NOT is false" );
 		query.setParameter("userId", (Integer) userID);
 		query.setParameter("state", ExportState.Finished);
 		long count = (Long) query.uniqueResult();
@@ -583,7 +588,7 @@ public class ExportService extends BasicService {
 		Session session = sessionFactory.getCurrentSession();
 		
 		try {		
-			Query query = session.createNativeQuery("UPDATE Export e SET e.valid = false WHERE e.survey.id = :id AND e.valid = true");
+			Query query = session.createNativeQuery("UPDATE EXPORTS e SET EXPORT_VALID = false WHERE e.SURVEY_ID = :id AND e.EXPORT_VALID = true");
 			query.setParameter("id", (Integer) surveyId);
 			
 			query.executeUpdate();
@@ -598,7 +603,7 @@ public class ExportService extends BasicService {
 		Session session = sessionFactory.getCurrentSession();
 		
 		try {		
-			Query query = session.createNativeQuery("UPDATE Export e SET e.notified = true WHERE e.id = :id");
+			Query query = session.createNativeQuery("UPDATE EXPORTS e SET e.EXPORT_NOT = true WHERE e.EXPORT_ID = :id");
 			query.setParameter("id", (Integer) id);
 			
 			query.executeUpdate();
@@ -729,7 +734,7 @@ public class ExportService extends BasicService {
 	@Transactional
 	public void applyExportTimeout() {
 		Session session = sessionFactory.getCurrentSession();
-		Query query = session.createNativeQuery("UPDATE Export e SET e.state = 1 WHERE e.state = 0 AND e.date <= :date");
+		Query query = session.createNativeQuery("UPDATE EXPORTS e SET e.EXPORT_STATE = 1 WHERE e.EXPORT_STATE = 0 AND e.EXPORT_DATE <= :date");
 		
 		Calendar cal = Calendar.getInstance();
 		int days = Integer.parseInt(exporttimeout);
@@ -922,7 +927,7 @@ public class ExportService extends BasicService {
 		
 		while (currenttime.before(endtime))
 		{
-			Query query = session.createNativeQuery("FROM WebserviceTask t WHERE t.created < :date");
+			Query query = session.createNativeQuery("SELECT * FROM WEBSERVICETASK t WHERE t.WST_CREATED < :date");
 			query.setParameter("date", (Timestamp) date).setMaxResults(1000);
 			@SuppressWarnings("unchecked")
 			List<WebserviceTask> tasks = query.list();
@@ -952,7 +957,7 @@ public class ExportService extends BasicService {
 	@Transactional(readOnly = true)
 	public Export getExportByResultFilterID(int id) {
 		Session session = sessionFactory.getCurrentSession();
-		Query query = session.createNativeQuery("FROM Export e WHERE e.resultFilter.id = :id");
+		Query query = session.createNativeQuery("SELECT * FROM EXPORTS e WHERE e.id_resflt = :id");
 		query.setParameter("id", (Integer) id);
 		@SuppressWarnings("unchecked")
 		List<Export> exports = query.list();

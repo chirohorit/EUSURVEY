@@ -110,7 +110,7 @@ public class SurveyService extends BasicService {
 		NativeQuery<?> query = session.createNativeQuery(sql);
 		sqlQueryService.setParameters(query, parameters);
 
-        System.out.println("loadSurveysfromDatabase: " + sql);
+        //System.out.println("loadSurveysfromDatabase: " + sql);
 
 		return (List<Object[]>) query.setFirstResult(sqlPagination.getFirstResult()).setMaxResults(sqlPagination.getMaxResult()).list();
 	}
@@ -435,7 +435,7 @@ public class SurveyService extends BasicService {
 		Session session = sessionFactory.getCurrentSession();
 		NativeQuery<?> query = session.createNativeQuery("SELECT MIN(SURVEY_CREATED), MAX(SURVEY_CREATED) FROM SURVEYS WHERE ISDRAFT = 0 AND SURVEY_UID = :SURVEY_UID");
 
-        System.out.println("initPublishedDates: " + query);
+        //System.out.println("initPublishedDates: " + query);
 
 		@SuppressWarnings("unchecked")
 		List<Object> datesList = Collections.singletonList(query.setParameter("SURVEY_UID", survey.getUniqueId()).list());
@@ -451,7 +451,7 @@ public class SurveyService extends BasicService {
 		NativeQuery<?> query = session.createNativeQuery("SELECT COUNT(DISTINCT SURABUSE_ID) FROM SURABUSE WHERE SURABUSE_SURVEY = :SURVEY_UID");
 
 		Object count = query.setParameter("SURVEY_UID", survey.getUniqueId()).uniqueResult();
-        System.out.println("initPublishedDates: " + query);
+        //System.out.println("initNumberOfReports: " + query);
 		survey.setNumberOfReports(ConversionTools.getValue(count));
 	}	
 

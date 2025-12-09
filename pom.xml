@@ -114,7 +114,7 @@
     <dependency>
       <groupId>org.json</groupId>
       <artifactId>json</artifactId>
-      <version>20230227</version>
+      <version>20250517</version><!--20230227-->
       <!-- keep if your code uses org.json directly; otherwise prefer Jackson -->
     </dependency>
 
@@ -151,7 +151,7 @@
     <dependency>
       <groupId>org.jfree</groupId>
       <artifactId>jfreechart</artifactId>
-      <version>1.5.3</version>
+      <version>1.5.6</version>
     </dependency>
     <!--<dependency>
       <groupId>org.jfree</groupId>
@@ -295,7 +295,9 @@
     </dependency>
 
     <!-- jmimemagic (kept with exclusions) -->
-    <dependency>
+      <!-- Alternative java.nio.file.Files -->
+      <!-- effects com.fasterxml.jackson.core:jackson-annotations @JsonIgnore annotation as well -->
+    <!--<dependency>
       <groupId>net.sf.jmimemagic</groupId>
       <artifactId>jmimemagic</artifactId>
       <version>0.1.4</version>
@@ -309,7 +311,7 @@
           <artifactId>log4j</artifactId>
         </exclusion>
       </exclusions>
-    </dependency>
+    </dependency>-->
 
 
     <!-- Spring modules (as in original POM) -->

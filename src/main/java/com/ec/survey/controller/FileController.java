@@ -6,7 +6,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.ec.survey.tools.FileChecker;
-import net.sf.jmimemagic.Magic;
+//import net.sf.jmimemagic.Magic;
+import java.nio.file.Files;
 
 import org.apache.catalina.connector.ClientAbortException;
 import org.springframework.stereotype.Controller;
@@ -96,14 +97,23 @@ public class FileController extends BasicController {
 		throw new InvalidURLException();
 	}
 
-	private String getMimeType(java.io.File f) {
+	/*private String getMimeType(java.io.File f) {
 		try {
 			return Magic.getMagicMatch(f, false).getMimeType();
 		} catch (Exception e) {
 			// unknown type
 			return "";
 		}
-	}
+	}*/
+
+    private String getMimeType(java.io.File f) {
+        try {
+            return Files.probeContentType(f.toPath());
+        } catch (Exception e) {
+            // unknown type
+            return "";
+        }
+    }
 	
 	@RequestMapping(value = "/withcomment/{uid}", method = { RequestMethod.GET, RequestMethod.HEAD })
 	public ModelAndView fileWithComment(@PathVariable String uid, HttpServletRequest request,
