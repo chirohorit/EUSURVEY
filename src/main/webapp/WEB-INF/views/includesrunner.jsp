@@ -73,7 +73,8 @@
 </c:if>
 
 <script type='text/javascript' src='${contextpath}/resources/js/knockout-3.5.1.js?version=<%@include file="version.txt" %>'></script>
-<script type="text/javascript" src="${contextpath}/resources/js/jquery-1.12.3.min.js?version=<%@include file="version.txt" %>"></script>
+<!--script type="text/javascript" src="${contextpath}/resources/js/jquery-1.12.3.min.js?version=<%@include file="version.txt" %>"></script-->
+<script type="text/javascript" src="${contextpath}/resources/js/jquery-3.7.1.min.js?version=<%@include file="version.txt" %>"></script>
 <script type="text/javascript" src="${contextpath}/resources/js/jquery-ui.min.js?version=<%@include file="version.txt" %>"></script>
 <script type="text/javascript" src="${contextpath}/resources/js/jquery.ui.touch-punch.min.js?version=<%@include file="version.txt" %>"></script>
 <script type="text/javascript" src="${contextpath}/resources/js/spin.min.js?version=<%@include file="version.txt" %>"></script>

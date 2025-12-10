@@ -13,7 +13,8 @@ import org.xhtmlrenderer.pdf.ITextRenderer;
 import org.xhtmlrenderer.resource.FSEntityResolver;
 
 import com.ec.survey.service.SessionService;
-import com.lowagie.text.pdf.BaseFont;
+//import com.lowagie.text.pdf.BaseFont;
+import com.itextpdf.text.pdf.BaseFont;
 
 public class PDFRenderer {
 	

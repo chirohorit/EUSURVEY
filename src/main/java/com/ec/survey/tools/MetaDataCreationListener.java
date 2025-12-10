@@ -1,9 +1,16 @@
 package com.ec.survey.tools;
 
-import com.lowagie.text.pdf.PdfName;
+/*import com.lowagie.text.pdf.PdfName;
 import com.lowagie.text.pdf.PdfObject;
 import com.lowagie.text.pdf.PdfString;
-import com.lowagie.text.pdf.PdfWriter;
+import com.lowagie.text.pdf.PdfWriter;*/
+
+import com.itextpdf.text.pdf.PdfName;
+import com.itextpdf.text.pdf.PdfObject;
+import com.itextpdf.text.pdf.PdfString;
+import com.itextpdf.text.pdf.PdfWriter;
+
+
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;

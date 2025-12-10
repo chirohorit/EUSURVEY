@@ -42,7 +42,9 @@ import com.ec.survey.service.TranslationService;
 import com.ec.survey.service.WebserviceService;
 import com.ec.survey.tools.export.XmlExportCreator;
 import com.google.common.io.Files;
-import com.lowagie.text.pdf.PdfReader;
+//import com.lowagie.text.pdf.PdfReader;
+
+import com.itextpdf.text.pdf.PdfReader;
 
 @Service("resultsCreator")
 @Scope("prototype")
